@@ -54,9 +54,16 @@ const deleteProject = asyncHandler(async (req, res) => {
 	res.status(200).json({ id: req.params.id })
 })
 
+const getProject = asyncHandler(async (req, res) => {
+	const project = await Project.findById(req.params.id)
+
+	res.status(200).json(project)
+})
+
 module.exports = {
 	getProjects,
 	setProject,
 	updateProject,
 	deleteProject,
+	getProject,
 }
